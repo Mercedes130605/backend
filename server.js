@@ -261,7 +261,7 @@ app.post('/api/auth/register', async (req, res) => {
 app.get('/api/peliculas', async (req, res) => {
     try {
         const [peliculas] = await pool.query(
-            'SELECT * FROM peliculas WHERE estado != "finalizada" ORDER BY fecha_estreno DESC'
+            "SELECT * FROM peliculas WHERE estado != 'finalizada' ORDER BY fecha_estreno DESC"
         );
         res.json(peliculas);
     } catch (error) {
@@ -279,11 +279,8 @@ app.get('/api/peliculas/buscar', async (req, res) => {
     
     try {
         const [peliculas] = await pool.query(
-            `SELECT * FROM peliculas 
-             WHERE estado != "finalizada" 
-             AND (titulo LIKE ? OR genero LIKE ? OR descripcion LIKE ?)
-             ORDER BY fecha_estreno DESC`,
-            [`%${q}%`, `%${q}%`, `%${q}%`]
+            "SELECT * FROM peliculas WHERE estado != 'finalizada' AND (titulo LIKE ? OR genero LIKE ? OR descripcion LIKE ?) ORDER BY fecha_estreno DESC",
+             [`%${q}%`, `%${q}%`, `%${q}%`]
         );
         res.json(peliculas);
     } catch (error) {
