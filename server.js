@@ -13,7 +13,7 @@ const app = express();
 const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:4200', 'http://localhost:3000', 'http://localhost:3030'];
 
 app.use(cors({
-    origin: ['https://frontend-romerocines.vercel.app', 'http://localhost:4200', 'http://localhost:3030'],
+    origin: ['https://frontend-lac-gamma-51.vercel.app', 'http://localhost:4200', 'http://localhost:3030'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
